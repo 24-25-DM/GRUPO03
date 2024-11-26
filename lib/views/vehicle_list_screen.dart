@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/models/Vehicle.dart';
 import '../controllers/vehicle_controller.dart';
-import '../models/vehicle.dart';
 import 'add_vehicle_screen.dart';
 
 class VehicleListScreen extends StatelessWidget {
   final VehicleController _controller = VehicleController();
 
+  VehicleListScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Lista de Vehículos')),
+      appBar: AppBar(title: const Text('Lista de Vehículos')),
       body: ValueListenableBuilder<List<Vehicle>>(
         valueListenable: _controller.vehicles,
         builder: (context, vehicles, _) {
@@ -38,7 +40,7 @@ class VehicleListScreen extends StatelessWidget {
             _controller.addVehicle(newVehicle);
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

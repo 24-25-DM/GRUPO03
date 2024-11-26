@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/vehicle.dart';
+import 'package:flutter_app/models/Vehicle.dart';
 
 class VehicleController {
   ValueNotifier<List<Vehicle>> vehicles = ValueNotifier<List<Vehicle>>([

@@ -1,4 +1,5 @@
-import '../models/user.dart';
+
+import 'package:flutter_app/models/User.dart';
 
 class LoginController {
   final List<User> users = [

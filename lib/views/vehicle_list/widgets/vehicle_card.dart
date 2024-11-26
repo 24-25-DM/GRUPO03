@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/models/vehicle.dart';
+import 'package:flutter_app/models/Vehicle.dart';
 
 class VehicleCard extends StatelessWidget {
   const VehicleCard({
