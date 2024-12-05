@@ -7,11 +7,13 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
 
+  LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Iniciar Sesión'),
+        title: const Text('Iniciar Sesión'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -28,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // Título
-                  Text(
+                  const Text(
                     'Bienvenido',
                     style: TextStyle(
                       fontSize: 24,
@@ -36,21 +38,21 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.blueAccent,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // Campo de nombre
                   TextField(
                     controller: firstNameController,
                     decoration: InputDecoration(
                       labelText: 'Nombre',
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
 
                   // Campo de apellido
                   TextField(
@@ -58,14 +60,14 @@ class LoginScreen extends StatelessWidget {
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Apellido',
-                      prefixIcon: Icon(Icons.person_outline),
+                      prefixIcon: const Icon(Icons.person_outline),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                     textInputAction: TextInputAction.done,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // Botón de ingreso
                   ElevatedButton(
@@ -74,7 +76,8 @@ class LoginScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 50),
                     ),
                     onPressed: () {
                       if (_controller.authenticate(
@@ -83,15 +86,17 @@ class LoginScreen extends StatelessWidget {
                       )) {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (_) => VehicleListScreen()),
+                          MaterialPageRoute(
+                              builder: (_) => VehicleListScreen()),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Credenciales inválidas')),
+                          const SnackBar(
+                              content: Text('Credenciales inválidas')),
                         );
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Ingresar',
                       style: TextStyle(
                         fontSize: 18,
@@ -99,9 +104,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-
-                  
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
