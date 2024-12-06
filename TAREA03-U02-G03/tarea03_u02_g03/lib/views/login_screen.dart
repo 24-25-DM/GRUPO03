@@ -13,11 +13,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD:TAREA03-U02-G03/tarea03_u02_g03/lib/views/login_screen.dart
         title: const Text('Iniciar Sesión NUEVA APP'),
-=======
-        title: const Text('Iniciar Sesión'),
->>>>>>> 84fde6a0f7d630c4189710058646c884dd3ee611:lib/views/login_screen.dart
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
