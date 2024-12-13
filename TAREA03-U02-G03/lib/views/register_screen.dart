@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import '../controllers/register_controller.dart';
 
-
 class RegisterScreen extends StatelessWidget {
   final RegisterController _controller = RegisterController();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
-  
+
+  RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registrarse'),
+        title: const Text('Registrarse'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -27,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     'Crear cuenta',
                     style: TextStyle(
                       fontSize: 24,
@@ -35,56 +36,57 @@ class RegisterScreen extends StatelessWidget {
                       color: Colors.blueAccent,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextField(
                     controller: firstNameController,
                     decoration: InputDecoration(
                       labelText: 'Nombre',
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   TextField(
                     controller: lastNameController,
                     decoration: InputDecoration(
                       labelText: 'Apellido',
-                      prefixIcon: Icon(Icons.person_outline),
+                      prefixIcon: const Icon(Icons.person_outline),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blueAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 50),
                     ),
                     onPressed: () {
                       bool isRegistered = _controller.registerUser(
-                        firstNameController.text,
-                        lastNameController.text
-                        
-                      );
+                          firstNameController.text, lastNameController.text);
 
                       if (isRegistered) {
                         Navigator.pop(context); // Vuelve a la pantalla anterior
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Usuario registrado con éxito')),
+                          const SnackBar(
+                              content: Text('Usuario registrado con éxito')),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Registro fallido: Nombre ya en uso o campos vacíos')),
+                          const SnackBar(
+                              content: Text(
+                                  'Registro fallido: Nombre ya en uso o campos vacíos')),
                         );
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Registrarse',
                       style: TextStyle(
                         fontSize: 18,

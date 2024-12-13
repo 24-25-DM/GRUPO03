@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/vehicle.dart';
-import 'package:flutter_app/views/edit_vehicle_screen.dart';
 
 class VehicleCard extends StatelessWidget {
   final Vehicle vehicle;

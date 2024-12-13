@@ -64,7 +64,7 @@ class _EditVehicleScreenState extends State<EditVehicleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Editar Vehículo')),
+      appBar: AppBar(title: const Text('Editar Vehículo')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -117,15 +117,15 @@ class _EditVehicleScreenState extends State<EditVehicleScreen> {
                     selectedColor = value as String;
                   });
                 },
-                decoration: InputDecoration(labelText: 'Color'),
+                decoration: const InputDecoration(labelText: 'Color'),
               ),
               TextField(
                 controller: costController,
-                decoration: InputDecoration(labelText: 'Costo'),
+                decoration: const InputDecoration(labelText: 'Costo'),
                 keyboardType: TextInputType.number,
               ),
               SwitchListTile(
-                title: Text('Activo'),
+                title: const Text('Activo'),
                 value: isActive,
                 onChanged: (value) {
                   setState(() {
@@ -156,7 +156,7 @@ class _EditVehicleScreenState extends State<EditVehicleScreen> {
                   widget.onVehicleEdited(vehicle);
                   Navigator.pop(context);
                 },
-                child: Text('Guardar'),
+                child: const Text('Guardar'),
               ),
             ],
           ),

@@ -7,6 +7,8 @@ import '../add_vehicle_screen.dart';
 import 'package:flutter_app/views/login_screen.dart';
 
 class VehicleListScreen extends StatefulWidget {
+  const VehicleListScreen({super.key});
+
   @override
   _VehicleListScreenState createState() => _VehicleListScreenState();
 }
@@ -81,10 +83,10 @@ class _VehicleListScreenState extends State<VehicleListScreen>
             },
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem<String>(
+                const PopupMenuItem<String>(
                   value: 'logout',
                   child: Row(
-                    children: const [
+                    children: [
                       Icon(Icons.logout, color: Colors.black54),
                       SizedBox(width: 8),
                       Text('Cerrar Sesión'),
