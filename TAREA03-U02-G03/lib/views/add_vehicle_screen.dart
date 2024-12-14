@@ -8,10 +8,10 @@ class AddVehicleScreen extends StatefulWidget {
   const AddVehicleScreen({super.key, required this.controller});
 
   @override
-  _AddVehicleScreenState createState() => _AddVehicleScreenState();
+  AddVehicleScreenState createState() => AddVehicleScreenState();
 }
 
-class _AddVehicleScreenState extends State<AddVehicleScreen> {
+class AddVehicleScreenState extends State<AddVehicleScreen> {
   final TextEditingController letterController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
   final TextEditingController brandController = TextEditingController();

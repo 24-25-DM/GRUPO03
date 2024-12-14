@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/vehicle.dart';
 import 'package:flutter_app/views/edit_vehicle_screen.dart';
-import 'package:flutter_app/views/vehicle_list/widgets/vehicle_list_body.dart';
+import 'package:flutter_app/views/vehicle_list/widgets/vehicle_card.dart';
 import '../../controllers/vehicle_controller.dart';
 import '../add_vehicle_screen.dart';
 import 'package:flutter_app/views/login_screen.dart';
@@ -10,65 +10,33 @@ class VehicleListScreen extends StatefulWidget {
   const VehicleListScreen({super.key});
 
   @override
-  _VehicleListScreenState createState() => _VehicleListScreenState();
+  VehicleListScreenState createState() => VehicleListScreenState();
 }
 
-class _VehicleListScreenState extends State<VehicleListScreen>
-    with SingleTickerProviderStateMixin {
+class VehicleListScreenState extends State<VehicleListScreen> {
   final VehicleController _controller = VehicleController();
-  late AnimationController _animationController;
-  late Animation<Color?> _gradientAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Configuración de la animación del degradado
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    )..repeat(reverse: true);
-
-    _gradientAnimation = _animationController.drive(
-      ColorTween(
-        begin: Colors.blue,
-        end: Colors.purple,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            return ShaderMask(
-              shaderCallback: (bounds) {
-                return LinearGradient(
-                  colors: [
-                    _gradientAnimation.value ?? Colors.blue,
-                    Colors.pink,
-                  ],
-                ).createShader(bounds);
-              },
-              child: const Text(
-                'Lista de Vehículos',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 20,
-                  color: Colors.white, // El color final después de ShaderMask
-                ),
-              ),
-            );
+        title: ShaderMask(
+          shaderCallback: (bounds) {
+            return const LinearGradient(
+              colors: [
+                Colors.blue,
+                Colors.pink,
+              ],
+            ).createShader(bounds);
           },
+          child: const Text(
+            'Lista de Vehículos',
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 20,
+              color: Colors.white, // El color final después de ShaderMask
+            ),
+          ),
         ),
         actions: [
           PopupMenuButton<String>(
@@ -106,10 +74,7 @@ class _VehicleListScreenState extends State<VehicleListScreen>
               builder: (context) => AddVehicleScreen(controller: _controller),
             ),
           );
-
-          if (newVehicle != null) {
-            _controller.addVehicle(newVehicle);
-          }
+          if (newVehicle != null) _controller.addVehicle(newVehicle);
         },
         child: const Icon(Icons.add_rounded),
       ),
@@ -124,28 +89,50 @@ class _VehicleListScreenState extends State<VehicleListScreen>
         child: ValueListenableBuilder<List<Vehicle>>(
           valueListenable: _controller.vehicles,
           builder: (context, vehicles, _) {
-            return VehicleListBody(
-              vehicles: vehicles,
-              onVehicleSelected: (vehicle) {
-                print("Vehículo seleccionado: ${vehicle.plate}");
-              },
-              onVehicleDeleted: (vehicle) {
-                _controller.removeVehicle(vehicle.plate);
-              },
-              onVehicleEdited: (vehicle) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => EditVehicleScreen(
-                      vehicle: vehicle,
-                      onVehicleEdited: (editedVehicle) {
-                        _controller.editVehicle(
-                            editedVehicle,
-                            vehicles
-                                .indexWhere((v) => v.plate == vehicle.plate));
-                      },
+            return ListView.builder(
+              // controller: _scrollController,
+              padding: const EdgeInsets.all(16),
+              itemCount: vehicles.length + 1, // +1 for header
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    child: Text(
+                      'Vehículos',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
+                  );
+                }
+                final vehicle = vehicles[index - 1];
+                return VehicleCard(
+                  key: ValueKey(vehicle.plate),
+                  vehicle: vehicle,
+                  onVehicleSelected: (vehicle) {
+                    // TODO
+                  },
+                  onVehicleDeleted: (vehicle) {
+                    _controller.removeVehicle(vehicle.plate);
+                  },
+                  onVehicleEdited: (vehicle) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditVehicleScreen(
+                          vehicle: vehicle,
+                          onVehicleEdited: (editedVehicle) {
+                            _controller.editVehicle(
+                                editedVehicle,
+                                vehicles.indexWhere(
+                                    (v) => v.plate == vehicle.plate));
+                          },
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             );

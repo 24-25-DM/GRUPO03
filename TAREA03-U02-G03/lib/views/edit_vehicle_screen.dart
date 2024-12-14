@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/vehicle.dart';
-import '../controllers/vehicle_controller.dart';
 
 class EditVehicleScreen extends StatefulWidget {
   final Vehicle vehicle;
@@ -13,10 +12,10 @@ class EditVehicleScreen extends StatefulWidget {
   });
 
   @override
-  _EditVehicleScreenState createState() => _EditVehicleScreenState();
+  EditVehicleScreenState createState() => EditVehicleScreenState();
 }
 
-class _EditVehicleScreenState extends State<EditVehicleScreen> {
+class EditVehicleScreenState extends State<EditVehicleScreen> {
   late TextEditingController letterController;
   late TextEditingController numberController;
   late TextEditingController brandController;
