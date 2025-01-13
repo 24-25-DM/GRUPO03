@@ -15,6 +15,7 @@ class RegisterController {
 
   
   bool registerUser(String firstName, String lastName) {
+    
     if (firstName.isEmpty || lastName.isEmpty) {
       return false;
     }
@@ -28,7 +29,11 @@ class RegisterController {
     final encryptedLastName = _encryptPassword(lastName);
     _loginController.users
         .add(User(firstName: firstName, lastName: encryptedLastName));
+    
     return true;
+
+    
+    
   }
 
  

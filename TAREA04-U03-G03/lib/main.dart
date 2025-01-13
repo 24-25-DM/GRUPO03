@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/life_cycle_manager.dart';
 import 'package:persistencia/views/login_screen.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+     LifecycleManager(
+      child: MyApp(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {
+  
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:xml/xml.dart';
+
 import '../models/user.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
@@ -33,10 +35,9 @@ class LoginController {
   bool authenticate(String firstName, String lastName) {
     // Encriptar el apellido ingresado para comparación
     final encryptedInputLastName = _encryptLastName(lastName);
-    //print('probando123 encrytado');
+
     //printUsers(); // Verificacion del usuario con el nombre y el apellido encriptado
-    _saveJsonToFile(jsonEncode(users.map((user) => user.toJson()).toList()));
-    
+
     return users.any((user) =>
         user.firstName == firstName && user.lastName == encryptedInputLastName);
   }
@@ -55,12 +56,10 @@ class LoginController {
     }
   }
 
-  void printUsersAsJson() {
-    final jsonString = jsonEncode(users.map((user) => user.toJson()).toList());
-    print(jsonString);
-  }
+  // PARA JSON
 
-  Future<void> _saveJsonToFile(String jsonString) async {
+  Future<void> saveJsonToFile() async {
+     String jsonString=jsonEncode(users.map((user) => user.toJson()).toList());
     if (Platform.isAndroid) {
       if (await _checkPermissions()) {
         try {
@@ -88,16 +87,115 @@ class LoginController {
     } else {
       print('Plataforma no soportada');
     }
-
-
-    
   }
-  //necesario para pedir permisooos 
-   Future<bool> _checkPermissions() async {
+
+  Future<void> loadJsonFromFile() async {
+    try {
+      if (Platform.isAndroid || Platform.isWindows) {
+        final directory = Platform.isAndroid
+            ? Directory('/storage/emulated/0/Download')
+            : await getApplicationDocumentsDirectory();
+        final file = File('${directory.path}/users.json');
+
+        if (await file.exists()) {
+          final jsonString = await file.readAsString();
+          final List<dynamic> jsonList = jsonDecode(jsonString);
+          users.clear();
+          users.addAll(jsonList.map((json) => User.fromJson(json)).toList());
+
+          print('Datos cargados exitosamente desde el archivo.');
+        } else {
+          print('El archivo no existe, se usará la lista predeterminada.');
+        }
+      } else {
+        print('Plataforma no soportada para leer datos.');
+      }
+    } catch (e) {
+      print('Error al cargar los datos: $e');
+    }
+  }
+
+//PARA XML
+
+  // Convertir toda la lista de user a formato XML y guardar
+  Future<void> saveXmlToFile() async {
+    try {
+      final builder = XmlBuilder();
+      builder.processing('xml', 'version="1.0"');
+      builder.element('users', nest: () {
+        for (var user in users) {
+          builder.xml(user.toXml());
+        }
+      });
+      final xmlString = builder.buildDocument().toString();
+
+      if (Platform.isAndroid) {
+        if (await _checkPermissions()) {
+          final directory = Directory('/storage/emulated/0/Download');
+          final file = File('${directory.path}/users.xml');
+          await file.writeAsString(xmlString);
+          print('Archivo XML guardado en: ${file.path}');
+        } else {
+          print('Permiso de almacenamiento denegado.');
+        }
+      } else if (Platform.isWindows) {
+        final directory = await getApplicationDocumentsDirectory();
+        final file = File('${directory.path}/users.xml');
+        await file.writeAsString(xmlString);
+        print('Archivo XML guardado en: ${directory.path}/users.xml');
+      } else {
+        print('Plataforma no soportada.');
+      }
+    } catch (e) {
+      print('Error al guardar el archivo XML: $e');
+    }
+  }
+
+  Future<void> loadXmlFromFile() async {
+    try {
+      if (Platform.isAndroid || Platform.isWindows) {
+        final directory = Platform.isAndroid
+            ? Directory('/storage/emulated/0/Download')
+            : await getApplicationDocumentsDirectory();
+        final file = File('${directory.path}/users.xml');
+
+        if (await file.exists()) {
+          final xmlString = await file.readAsString();
+          final document = XmlDocument.parse(xmlString);
+          final userElements = document.findAllElements('user');
+
+          users.clear();
+          users.addAll(userElements.map((element) {
+            final firstName = element.findElements('firstName').first.text;
+            final lastName = element.findElements('lastName').first.text;
+            return User(firstName: firstName, lastName: lastName);
+          }));
+
+          print('Datos cargados exitosamente desde el archivo XML.');
+        } else {
+          print('El archivo XML no existe, se usará la lista predeterminada.');
+        }
+      } else {
+        print('Plataforma no soportada para leer datos.');
+      }
+    } catch (e) {
+      print('Error al cargar los datos desde XML: $e');
+    }
+  }
+
+  //necesario para pedir permisooos
+  Future<bool> _checkPermissions() async {
     final status = await Permission.storage.status;
     if (status.isDenied || status.isPermanentlyDenied) {
       return await Permission.manageExternalStorage.request().isGranted;
     }
     return status.isGranted;
+  }
+
+  //un guardado general de los datos users
+  void saveDataOnExit() {
+    saveJsonToFile();
+    saveXmlToFile();
+    print('Datos guardados al salir.');
   }
 }
