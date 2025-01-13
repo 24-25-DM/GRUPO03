@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/controllers/login_controller.dart';
+import 'package:persistencia/controllers/vehicle_controller.dart';
 import 'package:persistencia/life_cycle_manager.dart';
 import 'package:persistencia/views/login_screen.dart';
 
 
-void main() {
+void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+
+  // Solicita el permiso al iniciar la aplicación
+  await LoginController().checkPermissions();
+   // Carga los datos desde el archivo JSON
+  await LoginController().loadJsonFromFile();
+  await VehicleController().loadVehiclesFromFile();
   runApp(
      LifecycleManager(
       child: MyApp(),
