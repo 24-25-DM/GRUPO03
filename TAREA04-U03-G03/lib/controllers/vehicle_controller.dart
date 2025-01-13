@@ -6,6 +6,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class VehicleController extends ChangeNotifier {
+  VehicleController._singleton();
+  static final VehicleController _mismaInstancia = VehicleController._singleton();
+  factory VehicleController() => _mismaInstancia;
   ValueNotifier<List<Vehicle>> vehicles = ValueNotifier<List<Vehicle>>([
     Vehicle(
       plate: 'AAA-123',
