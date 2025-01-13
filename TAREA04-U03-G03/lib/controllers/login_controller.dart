@@ -61,7 +61,7 @@ class LoginController {
   Future<void> saveJsonToFile() async {
      String jsonString=jsonEncode(users.map((user) => user.toJson()).toList());
     if (Platform.isAndroid) {
-      if (await _checkPermissions()) {
+      if (await checkPermissions()) {
         try {
           // ruta en general de donde se guardara el archivo
           final directory = Directory('/storage/emulated/0/Download');
@@ -130,7 +130,7 @@ class LoginController {
       final xmlString = builder.buildDocument().toString();
 
       if (Platform.isAndroid) {
-        if (await _checkPermissions()) {
+        if (await checkPermissions()) {
           final directory = Directory('/storage/emulated/0/Download');
           final file = File('${directory.path}/users.xml');
           await file.writeAsString(xmlString);
@@ -184,7 +184,7 @@ class LoginController {
   }
 
   //necesario para pedir permisooos
-  Future<bool> _checkPermissions() async {
+  Future<bool> checkPermissions() async {
     final status = await Permission.storage.status;
     if (status.isDenied || status.isPermanentlyDenied) {
       return await Permission.manageExternalStorage.request().isGranted;
