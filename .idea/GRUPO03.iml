@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Ejercicio01-Sumativa1-AS-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Ejercicio01-Sumativa1-AS-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Ejercicio01-Sumativa1-AS-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA03-U02-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA03-U02-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA03-U02-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA04-U03-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA04-U03-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA04-U03-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA05-U03-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA05-U03-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA05-U03-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA07-U04-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA07-U04-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA07-U04-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA08-U04-G03/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA08-U04-G03/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/TAREA08-U04-G03/build" />
+      <excludeFolder url="file://$MODULE_DIR$/test_repo4/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/test_repo4/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/test_repo4/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
