@@ -1,0 +1,1 @@
+ C:\\Users\\fing.labcom\\Documents\\workspace\\TG-DM-Flutter\\.dart_tool\\flutter_build\\b7a16e3a13068c85ef1e74646365a0c2\\native_assets.yaml: 

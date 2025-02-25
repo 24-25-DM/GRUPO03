@@ -1,0 +1,220 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.persistencia"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\debug\AndroidManifest.xml:6:22-64
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:2:5-81
+16-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:2:22-78
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:3:5-80
+17-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:3:22-77
+18    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+18-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:4:5-82
+18-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:4:22-79
+19    <!--
+20 Required to query activities that can process text, see:
+21         https://developer.android.com/training/package-visibility and
+22         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+23
+24         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+25    -->
+26    <queries>
+26-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:44:5-49:15
+27        <intent>
+27-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:45:9-48:18
+28            <action android:name="android.intent.action.PROCESS_TEXT" />
+28-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:46:13-73
+28-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:46:21-70
+29
+30            <data android:mimeType="text/plain" />
+30-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:47:13-51
+30-->C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\android\app\src\main\AndroidManifest.xml:47:19-48
+31        </intent>
+32    </queries>
+33
+34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+34-->[androidx.media3:media3-common:1.4.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\650c68391acf70ba20280662aa9b242d\transformed\jetified-media3-common-1.4.1\AndroidManifest.xml:22:5-79
+34-->[androidx.media3:media3-common:1.4.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\650c68391acf70ba20280662aa9b242d\transformed\jetified-media3-common-1.4.1\AndroidManifest.xml:22:22-76
+35
+36    <permission
+36-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+37        android:name="com.example.persistencia.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.example.persistencia.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+41
+42    <application
+43        android:name="android.app.Application"
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.13.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\55400baa15c966fba95a94dd1e74ae68\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+45        android:debuggable="true"
+46        android:extractNativeLibs="true"
+47        android:icon="@mipmap/ic_launcher"
+48        android:label="AutoHub" >
+49        <activity
+50            android:name="com.example.persistencia.MainActivity"
+51            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+52            android:exported="true"
+53            android:hardwareAccelerated="true"
+54            android:launchMode="singleTop"
+55            android:requestLegacyExternalStorage="true"
+56            android:taskAffinity=""
+57            android:theme="@style/LaunchTheme"
+58            android:windowSoftInputMode="adjustResize" >
+59
+60            <!--
+61                 Specifies an Android theme to apply to this Activity as soon as
+62                 the Android process has started. This theme is visible to the user
+63                 while the Flutter UI initializes. After that, this theme continues
+64                 to determine the Window background behind the Flutter UI.
+65            -->
+66            <meta-data
+67                android:name="io.flutter.embedding.android.NormalTheme"
+68                android:resource="@style/NormalTheme" />
+69
+70            <intent-filter>
+71                <action android:name="android.intent.action.MAIN" />
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+74            </intent-filter>
+75        </activity>
+76        <!--
+77             Don't delete the meta-data below.
+78             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+79        -->
+80        <meta-data
+81            android:name="flutterEmbedding"
+82            android:value="2" />
+83
+84        <provider
+84-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-17:20
+85            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+85-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-82
+86            android:authorities="com.example.persistencia.flutter.image_provider"
+86-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+87            android:exported="false"
+87-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+88            android:grantUriPermissions="true" >
+88-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-47
+89            <meta-data
+89-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-16:75
+90                android:name="android.support.FILE_PROVIDER_PATHS"
+90-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:17-67
+91                android:resource="@xml/flutter_image_picker_file_paths" />
+91-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-72
+92        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+93        <service
+93-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-31:19
+94            android:name="com.google.android.gms.metadata.ModuleDependencies"
+94-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-78
+95            android:enabled="false"
+95-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-36
+96            android:exported="false" >
+96-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-37
+97            <intent-filter>
+97-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-26:29
+98                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+98-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-94
+98-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:25:25-91
+99            </intent-filter>
+100
+101            <meta-data
+101-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-30:36
+102                android:name="photopicker_activity:0:required"
+102-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:29:17-63
+103                android:value="" />
+103-->[:image_picker_android] C:\Users\fing.labcom\Documents\workspace\TG-DM-Flutter\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:17-33
+104        </service>
+105
+106        <uses-library
+106-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+107            android:name="androidx.window.extensions"
+107-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+108            android:required="false" />
+108-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+109        <uses-library
+109-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+110            android:name="androidx.window.sidecar"
+110-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+111            android:required="false" />
+111-->[androidx.window:window:1.2.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\d1f861b18f2c0c0aea39bd3901e9092a\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+112
+113        <provider
+113-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+114            android:name="androidx.startup.InitializationProvider"
+114-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:25:13-67
+115            android:authorities="com.example.persistencia.androidx-startup"
+115-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:26:13-68
+116            android:exported="false" >
+116-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:27:13-37
+117            <meta-data
+117-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+118                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+118-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+119                android:value="androidx.startup" />
+119-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\2810377f6fbbf51475f679dd0603138f\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+120            <meta-data
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+121                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+122                android:value="androidx.startup" />
+122-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+123        </provider>
+124
+125        <receiver
+125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+126            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+127            android:directBootAware="false"
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+128            android:enabled="true"
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+129            android:exported="true"
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+130            android:permission="android.permission.DUMP" >
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+131            <intent-filter>
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+132                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+133            </intent-filter>
+134            <intent-filter>
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+135                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+136            </intent-filter>
+137            <intent-filter>
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+138                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+139            </intent-filter>
+140            <intent-filter>
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+141                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\fing.labcom\.gradle\caches\8.9\transforms\916e555a167370678e705bc4f0d45d77\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+142            </intent-filter>
+143        </receiver>
+144    </application>
+145
+146</manifest>

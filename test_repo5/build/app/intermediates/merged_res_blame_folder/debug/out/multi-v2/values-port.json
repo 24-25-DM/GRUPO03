@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.persistencia.app-mergeDebugResources-40:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\fing.labcom\\.gradle\\caches\\8.9\\transforms\\30741810f37ff025bb898b64f8ae094b\\transformed\\appcompat-1.1.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}
