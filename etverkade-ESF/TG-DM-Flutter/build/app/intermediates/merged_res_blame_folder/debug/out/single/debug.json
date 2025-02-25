@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.persistencia.app-main-37:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.persistencia.app-main-37:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/drawable-v21_launch_background.xml.flat",
+        "source": "com.example.persistencia.app-main-37:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.persistencia.app-main-37:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.persistencia.app-main-37:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/drawable_icono_app_drawable.png.flat",
+        "source": "com.example.persistencia.app-main-37:/drawable/icono_app_drawable.png"
+    },
+    {
+        "merged": "com.example.persistencia.app-merged_res-42:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.persistencia.app-main-37:/mipmap-mdpi/ic_launcher.png"
+    }
+]
