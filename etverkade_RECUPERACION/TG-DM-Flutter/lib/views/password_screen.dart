@@ -165,7 +165,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       ),
                       onPressed: () async {
                         await _controller.insertRec(Rec(0,
-                            att1Controller.text, semm2Controller.text));
+                            att1Controller.text, semm2Controller.text,''));
                         Navigator.pop(context);
                       },
                       child: Text(

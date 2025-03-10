@@ -16,6 +16,7 @@ class LoginController {
   static final DatabaseController _databaseController = DatabaseController();
 
   factory LoginController() => _mismaInstancia;
+  static String usr ='';
 
   ValueNotifier<List<User>> users = ValueNotifier<List<User>>([]);
 
@@ -38,9 +39,12 @@ class LoginController {
     agregarNuevosUsuarios();
 
     final encryptedLastName = sha512.convert(utf8.encode(lastName)).toString();
-
-    return users.value.any((user) =>
+    var i = users.value.any((user) =>
     user.firstName == firstName && user.lastName == encryptedLastName);
+    if (i) usr = firstName;
+
+    return i;
+
   }
 
   // Future<bool> authenticate(String firstName, String lastName) async {

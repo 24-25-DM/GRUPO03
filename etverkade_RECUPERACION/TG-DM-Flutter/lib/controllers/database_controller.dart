@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:persistencia/controllers/login_controller.dart';
 import 'package:persistencia/models/User.dart';
 import 'package:persistencia/models/Vehicle.dart';
 import 'package:postgres/postgres.dart';
@@ -54,8 +55,9 @@ class DatabaseController {
     await _connection.query('''
       CREATE TABLE IF NOT EXISTS rec (
         id SERIAL PRIMARY KEY,
-        att1 TEXT NOT NULL,
-        semm2 TEXT NOT NULL
+        accion TEXT NOT NULL,
+        usr TEXT NOT NULL,
+        fecha TEXT NOT NULL
       );
     ''');
     await createRecSequence();
@@ -83,11 +85,12 @@ class DatabaseController {
   Future<int> insertRec(Rec rec) async {
     final id = await generateId('rec_id_seq');
     final result = await _connection.query(
-      'INSERT INTO rec (id, att1, semm2) VALUES (@id, @att1, @semm2) RETURNING id',
+      'INSERT INTO rec (id, accion, usr, fecha) VALUES (@id, @accion, @usr, @fecha) RETURNING id',
       substitutionValues: {
         'id': id,
-        'att1': rec.att1,
-        'semm2': rec.semm2,
+        'accion': rec.accion,
+        'usr': rec.usr,
+        'fecha': rec.fecha,
       },
     );
     return result.first[0];
@@ -97,8 +100,8 @@ class DatabaseController {
     final result = await _connection.query('SELECT * FROM rec');
 
     return result.isNotEmpty? result.map((row) {
-      return Rec(row[0], row[1], row[2]);
-    }).toList().last: Rec(0, 'ERROR', "ERROR");
+      return Rec(row[0], row[1], row[2], row[3]);
+    }).toList().last: Rec(0, 'ERROR', "ERROR","ERROR");
   }
 
 //bottom///////////////////////////////////////////////////////////////////////
@@ -265,6 +268,7 @@ class DatabaseController {
         'imageUrl': vehicle.imageUrl,
       },
     );
+    insertRec(Rec(0,'Insertar',LoginController.usr,DateTime.now().toString()));
     return result.first[0];
   }
 
@@ -281,6 +285,7 @@ class DatabaseController {
         'imageUrl': vehicle.imageUrl,
       },
     );
+    insertRec(Rec(0,'Editar',LoginController.usr,DateTime.now().toString()));
     return result.affectedRowCount;
   }
 
@@ -289,12 +294,15 @@ class DatabaseController {
       'DELETE FROM vehicles WHERE plate = @plate',
       substitutionValues: {'plate': plate},
     );
+    insertRec(Rec(0,'Eliminar',LoginController.usr,DateTime.now().toString()));
+
     return result.affectedRowCount;
   }
 
   Future<List<Vehicle>> getVehicles() async {
     final result = await _connection.query('SELECT * FROM vehicles');
     return result.map((row) {
+      insertRec(Rec(0,'Get',LoginController.usr,DateTime.now().toString()));
       return Vehicle(
         id: row[0],
         plate: row[1],
@@ -307,6 +315,7 @@ class DatabaseController {
         isActive: row[6],
         imageUrl: row[7],
       );
+
     }).toList();
   }
 
