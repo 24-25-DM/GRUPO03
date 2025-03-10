@@ -24,6 +24,9 @@
       <excludeFolder url="file://$MODULE_DIR$/test_repo4/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/test_repo4/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/test_repo4/build" />
+      <excludeFolder url="file://$MODULE_DIR$/KAANDRADEC-ESF/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/KAANDRADEC-ESF/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/KAANDRADEC-ESF/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
